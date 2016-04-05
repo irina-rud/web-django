@@ -3,6 +3,13 @@
 {% block title %}Список постов{% endblock %}
 
 {% block content %}
+    <form action="">
+        {{ form.search }}
+        {{ form.sort_field }}
+        {{ form.sort_field.errors }}
+        <input type="submit">
+    </form>
+
     {% for post in object_list %}
         <div>
             <div><i><small>{{ post.created_at }}</small></i></div>

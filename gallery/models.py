@@ -12,3 +12,6 @@ class Gallery(models.Model):
     class Meta:
         verbose_name = u'Галерея'
         verbose_name_plural = u'Галереи'
+
+    def __unicode__(self):
+        return self.title

@@ -19,3 +19,6 @@ class Post(models.Model):
         verbose_name = u'Творение'
         verbose_name_plural = u'Творения'
         ordering = ('-created_at',)
+
+    def __unicode__(self):
+        return self.title
