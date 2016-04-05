@@ -1,0 +1,15 @@
+<form action="/search-form/" method="get">
+    {{ form }}
+    <input type="submit" value="Submit" />
+</form>
+
+
+{% for post in res %}
+        <div>
+            <div><i><small>{{ post.created_at }}</small></i></div>
+                <div><a href = "{% url "post:post_detail" pk=post.id %}">
+                    <b>{{ post.title }}</b></a></div>
+                <img src="{{post.picture.url}}">
+
+        </div>
+    {% endfor %}

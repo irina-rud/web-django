@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+
+{%block head %}
+<link rel="stylesheet" type="text/css" href="/static/post/posts.css" />
+{%endblock%}
+
+{%block content %}
+<div class="curTitle">
+    Разметите своё новое творение
+</div>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form }}
+</form>
+
+{%endblock%}

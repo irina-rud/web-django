@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+
+    {{ post.sign }}
+    <br>
+        <i><small>{{ post.pub_date }}</small></i>
+    <br>
+    <img src="{{post.picture.url}}">
+
+    {% for comment in post.comment_set.all %}
+        <blockquote>
+            {{ comment.text }}
+        <br>
+            <i><small>{{ comment.pub_date }}</small></i>
+        </blockquote>
+    {% endfor %}
+
+
+{% endblock %}

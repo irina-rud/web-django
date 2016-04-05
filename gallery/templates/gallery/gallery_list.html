@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+
+{% block title %}Список галерей{% endblock %}
+
+{% block content %}
+{% for gallery in object_list %}
+<div>
+	<div><i><small>{{ gallery.owner }}</small></i></div>
+		<div><a href = "{% url "gallery:gallery_detail" pk=gallery.id %}">
+			<b>{{ gallery.title }}</b></a></div>
+</div>
+{% endfor %}
+{% endblock %}

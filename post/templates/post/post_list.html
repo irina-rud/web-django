@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}Список постов{% endblock %}
+
+{% block content %}
+    {% for post in object_list %}
+        <div>
+            <div><i><small>{{ post.created_at }}</small></i></div>
+                <div><a href = "{% url "post:post_detail" pk=post.id %}">
+                    <b>{{ post.title }}</b></a></div>
+                <img src="{{post.picture.url}}">
+
+        </div>
+    {% endfor %}
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block title %}{{ gallery.title }}{% endblock %}
+
+{% block content %}
+    {% for post in gallery.post_set.all %}
+        {% if post.is_published == True %}
+            <div>
+                <div><a href = "{% url "post:post_detail" pk=post.id %}">
+			    <b>{{ post.title }}</b></a></div>
+	    	    <a>{{ post.text }}</a>
+            </div>
+        {% endif %}
+    {% endfor %}
+{% endblock %}
