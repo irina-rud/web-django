@@ -1,13 +1,13 @@
 # coding: utf-8
 from django import forms
 
-from post.models import Post
+from gallery.models import Gallery
 
 
-class PostForm(forms.Form):
+class GalleryForm(forms.Form):
     class Meta:
-        model = Post
-        fields = ('title', 'sign', 'picture', 'is_published', 'gallery')
+        model = Gallery
+        fields = ('title')
 
 
 class SearchForm(forms.Form):
@@ -15,7 +15,7 @@ class SearchForm(forms.Form):
 
 
 class PostSearchSortForm(forms.Form):
-    search = forms.CharField(label=u'Поиск ', max_length=255)
+    search = forms.CharField(required=False)
     sort_field = forms.ChoiceField(
         choices=(("id", "ID"), ("created_at", u'Дата создания'), ('last_changes', u'Дата последнего изменения')))
 

@@ -15,7 +15,6 @@ import os
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/1.9/howto/deployment/checklist/
 
@@ -26,7 +25,6 @@ SECRET_KEY = '&vj@otirlitje91*rrh)o(canqjx=&zkt)lm7&4vle(op--e(u'
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -74,21 +72,19 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'application.wsgi.application'
 
-
 # Database
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
     'default': {
-    	'ENGINE': 'django.db.backends.mysql',
-    	'NAME': 'application',
-    	'USER': 'riv',
-    	'PASSWORD': 'Bhbirf145',
-    	'HOST': '', # Set to empty string for localhost.
-    	'PORT': '', # Set to empty string for default.
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'application',
+        'USER': 'riv',
+        'PASSWORD': 'Bhbirf145',
+        'HOST': '',  # Set to empty string for localhost.
+        'PORT': '',  # Set to empty string for default.
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/1.9/ref/settings/#auth-password-validators
@@ -108,7 +104,6 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-
 # Internationalization
 # https://docs.djangoproject.com/en/1.9/topics/i18n/
 
@@ -122,13 +117,15 @@ USE_L10N = True
 
 USE_TZ = True
 
-
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.9/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = '/home/riv/iAmArtist/src/collected_static/'
-STATICFILES_DIRS = ('/home/riv/iAmArtist/src/static/', )
-MEDIA_ROOT = '/home/riv/iAmArtist/src/media/'
+STATIC_ROOT = '/home/riv/iAmArtist/collected_static/'
+STATICFILES_DIRS = ('/home/riv/iAmArtist/src/static/',)
+MEDIA_ROOT = '/home/riv/iAmArtist/media/'
 MEDIA_URL = '/media/'
-LOGIN_REDIRECT_URL= '/galleries'
+LOGIN_REDIRECT_URL = ''
+AUTHENTICATION_BACKENDS = (
+    'django.contrib.auth.backends.ModelBackend',
+)

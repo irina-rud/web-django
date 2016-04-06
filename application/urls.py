@@ -15,22 +15,12 @@ Including another URLconf
 """
 from django.conf.urls import url, include, patterns
 from django.contrib import admin
-from django.contrib.auth.views import login, logout
-
-import post
-from gallery.views import GalleryList
-from post.views import PostList
+from core.views import IndexView
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-
-    url(r'^post/', include('post.urls', namespace="post")),
-    url(r'^posts/$', PostList.as_view(), name="post_list"),
-    url(r'^gallery/', include('gallery.urls', namespace="gallery")),
-    url(r'^galleries/$', GalleryList.as_view(), name="gallery_list"),
-    url(r'^login/', login, {'template_name': 'core/login.html'}, name="login"),
-    url(r'^logout/', logout, {'template_name': 'core/logout.html'}, name="logout"),
-    #url(r'^search-form/', 'post.views.search_form'),
-    url(r'^$', PostList.as_view(), name="post_list"),
-    url(r'^new/', post.views.PostCreate.as_view()),
+    url(r'^posts/', include('post.urls', namespace='posts')),
+    url(r'^galleries/', include('gallery.urls', namespace='galleries')),
+    url(r'^core/', include('core.urls', namespace='core')),
+    url(r'^$', IndexView.as_view(), name='index'),
 ]

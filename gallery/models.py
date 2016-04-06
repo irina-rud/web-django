@@ -4,10 +4,11 @@ from __future__ import unicode_literals
 from django.conf import settings
 from django.db import models
 
-
 class Gallery(models.Model):
     title = models.CharField(max_length=255, verbose_name=u'Заголовок')
     owner = models.ForeignKey(settings.AUTH_USER_MODEL, verbose_name=u'Владелец')
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
 
     class Meta:
         verbose_name = u'Галерея'
@@ -15,3 +16,4 @@ class Gallery(models.Model):
 
     def __unicode__(self):
         return self.title
+

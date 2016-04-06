@@ -1,9 +1,12 @@
-{% extends "base.html" %}
+{% extends "core/base.html" %}
 
 {% block title %}{{ post.title }}{% endblock %}
 
 {% block content %}
 
+    {% if post.author == user %}
+        <div><a href="{% url "posts:post_update" pk=post.pk %}">Редактировать</a></div>
+    {% endif %}
     {{ post.sign }}
     <br>
         <i><small>{{ post.pub_date }}</small></i>

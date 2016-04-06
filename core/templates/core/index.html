@@ -1,0 +1,23 @@
+{% extends "core/base.html" %}
+
+{% block content %}
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4">
+                Последние творения<br>
+                {% for question in last_questions %}
+                    <div class="post">
+                        {{ post.author }} <b>{{ post.created_at }}</b><a href="{% url "posts:post_detail" pk=question.pk %}">{{ post.title }}</a>
+                    </div>
+                {% endfor %}
+            </div>
+            <div class="col-md-4">
+                Последние комментарии<br>
+                {% for comment in last_answers %}
+                    {{ comment.author }} <b>{{ comment.created_at }}</b>
+                    <div>{{ comment.text|slice:":50" }}...</div>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

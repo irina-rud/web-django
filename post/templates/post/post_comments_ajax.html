@@ -1,0 +1,4 @@
+    {% for comment in post.comment_set.all %}
+        {{ comment.author }} <b>{{ comment.created_at }}</b>
+        <div>{{ comment.text }}</div>
+    {% endfor %}
